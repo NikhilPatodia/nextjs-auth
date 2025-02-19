@@ -1,6 +1,5 @@
 "use client"
 
-import { sendMail } from '@/helpers/mailer'
 import axios from 'axios'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'

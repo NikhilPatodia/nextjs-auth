@@ -38,6 +38,7 @@ function Verifyemail() {
    } 
    useEffect(()=>{
       getUserVerification()
+   // eslint-disable-next-line react-hooks/exhaustive-deps
    }, []);
 
      useEffect(()=>{
