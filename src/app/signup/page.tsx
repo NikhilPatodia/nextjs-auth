@@ -24,7 +24,8 @@ function Signup() {
         toast.success("User Created Successfully!")
         router.push("/login")
 
-    } catch (error) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error:any) {
       toast.error(error?.response?.data?.error)
     }finally{
       setLoading(false)

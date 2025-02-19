@@ -23,7 +23,8 @@ function Login() {
         router.push("/profile")
        
 
-    } catch (error) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error:any) {
       toast.error(error?.response?.data?.error)
     }finally{
       setLoading(false);
@@ -50,7 +51,8 @@ function Login() {
         
         console.log(res?.data)
         toast.success("Send Mail For Verification")
-      } catch (error) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      } catch (error:any) {
         toast.error(error?.response?.data?.error)
       }
     }
