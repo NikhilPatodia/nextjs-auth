@@ -1,7 +1,10 @@
 import nodemailer from "nodemailer"
 import jwt from "jsonwebtoken"
 import { User } from "@/models/user.model";
-
+interface SendMailParams {
+  email: string;
+  emailType: "VERIFY" | "RESET"; // Assuming only these two values are allowed
+}
 const transporter = nodemailer.createTransport({
   host: "sandbox.smtp.mailtrap.io",
   port: 2525,
@@ -12,7 +15,8 @@ const transporter = nodemailer.createTransport({
 });
 
 
-const sendMail = async ({ email, emailType}) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const sendMail = async ({ email, emailType }: SendMailParams): Promise<any> => {
   console.log("Email is: ", process.env.EMAIL_USER, process.env.EMAIL_PASSWORD)
   const user = await User.findOne({email});
   if (!user) {
